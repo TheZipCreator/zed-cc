@@ -1,0 +1,61 @@
+Hello, welcome to zed! This is the general
+tutorial page for using zed.
+
+zed was inspired by terminal text editors,
+primarily vim. As such, its navigation is entirely
+keyboard-driven. There are two main ways to do
+things in zed; either by actions (pressing a key
+while currently not in a mode) or commands (done
+by pressing <:> to enter command mode).
+
+Below is a list of actions in the current version
+of zed:
+<i> enter insert mode
+<:> enter command mode
+<h> display this help information
+<leftCtrl> exit your current mode
+<,> Go left one file
+<.> Go right one file
+<arrow keys> Pan around the file
+
+The following is a list of modes and their
+descriptions:
+
+# Insert mode
+Insert is the main place where you'll be typing in
+things into files. Once entered, you'll see text
+on the bottom of your screen saying "-- INSERT --".
+In insert mode, keypresses will place characters
+at your cursor; backspace, delete, and enter work
+as expected.
+
+# Command mode
+In command mode, a prompt will appear at the bottom
+of the screen, starting with a <:>. This allows you
+to type commands. Commands are written in a lisp
+dialect, but the parenthesis around the first
+command are ommitted.
+The main types zed lisp are numbers (e.g. <1234>,
+<0x5>, <1.5>), symbols (e.g. <abc>, <lexer>, <list>
+) and strings (e.g. <"Hello, World!">, <"end">,
+<"\"[^"]*\"">)
+Symbols usually represent variables or built-in
+functions, however they may be interpreted
+differently based on the command. Here is a list
+of common commands:
+<e [strings...]> Opens files for <e>diting
+<w> <W>rites the file to disk.
+<q> <Q>uits zed
+<c [strings...]> <C>loses files. If no files are
+specified, then it closes the currently selected
+file. 
+
+There are also the following operations, which may
+be performed on numbers: <+> <-> <*> </> <%>.
+Keep in mind, zed lisp is still lisp, so you must
+order these operations in prefix order:
+<* 2 (+ 3 4 5) (/ 5 6)> not <2*(3+4+5)*(5/6)>.
+
+Now that you know the basics, you should be able
+to navigate yourself around in zed.
+Happy editing! 

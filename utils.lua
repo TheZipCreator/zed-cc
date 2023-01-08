@@ -67,3 +67,16 @@ function contains(table, element)
 	end
 	return false;
 end
+
+--- Returns the whitespace before a string
+function precedingWhitespace(str)
+	local ws = "";
+	for i=1, #str do
+		local c = string.sub(str, i, i);
+  if c ~= " " and c ~= "\t" then
+			break;
+		end
+		ws = ws .. c;
+	end
+ return ws;
+end

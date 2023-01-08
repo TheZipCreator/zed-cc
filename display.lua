@@ -90,3 +90,11 @@ function displayCursor()
 		term.setCursorPos(cursorX-scrollX, cursorY-scrollY+1);
 	end
 end
+
+--- Displays the line and column number
+function displayLineCol()
+	local text = tostring(cursorY) .. ";" .. tostring(cursorX)
+	term.setCursorPos(width-#text, height)
+	setColor(colors.white, colors.black);
+	term.write(text);
+end

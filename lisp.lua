@@ -234,6 +234,25 @@ function eval(e, context)
 			end
 			themes[name] = tmp;
 		end,
+		c = function(vals)
+			if #vals > 0 then
+				local all = evalAll(vals, context);
+				for i, file in ipairs(openFiles) do
+					if contains(all, file.name) then
+						table.remove(openFiles, i);
+					end
+				end
+			else
+				table.remove(openFiles, fileIndex);
+			end
+			if #openFiles == 0 then
+				createIntroFile();
+			end
+			if fileIndex > #openFiles then
+				fileIndex = #openFiles;
+			end
+			setFile(fileIndex, false);
+		end,
 		["+"] = function(vals)
 			return fold(evalAll(vals, context), function(a, b) return a+b end);
 		end,

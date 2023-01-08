@@ -40,13 +40,13 @@ function File:new(filename, text, mode)
 end
 
 --- Loads a file from the given filename. Starts searching from the current working directory
-function File:load(filename)
+function File:load(filename, mode)
 	local f = fs.open(resolvePath(filename), "r");
 	if f == nil then
 		reportError("E0: Cannot find file" .. filename);
 		return;
 	end
-	local ret = File:new(filename, f.readAll());
+	local ret = File:new(filename, f.readAll(), mode or "readwrite");
 	f.close();
 	return ret;
 end
